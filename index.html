@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cilok Goreng</title>
+    <link
+      rel="shortcut icon"
+      href="./images/cigor/3.jpeg"
+      type="image/x-icon"
+    />
+
+    <!-- ----linked font awesome cdn---- -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- ----linked style.css file---- -->
+    <link rel="stylesheet" href="./public/css/style.css" />
+
+    <!-- ----linked media.css file---- -->
+    <link rel="stylesheet" href="./public/css/media.css" />
+
+    <style>
+      .marquee {
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .marquee a {
+        display: inline-block;
+        animation: scroll-left 15s linear infinite;
+      }
+
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        text-align: center;
+      }
+
+      .popup.visible {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .popup button {
+        margin-top: 10px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .popup button:hover {
+        background-color: #218838;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        visibility: hidden;
+        opacity: 0;
+        z-index: 999;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .overlay.visible {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ====markup header element==== -->
+    <header class="header">
+      <!-- ---header logo--- -->
+      <div class="header-logo">
+        <img src="./images/cigor/3.jpeg" alt="logo" />
+      </div>
+
+      <!-- ---navigation--- -->
+      <nav class="navbar">
+        <ul>
+          <li>
+            <a class="active" href="#home">home</a>
+          </li>
+          <li></li>
+          <li>
+            <a href="#popular">popular</a>
+          </li>
+          <li>
+            <a href="#gallery">gallery</a>
+          </li>
+          <li>
+            <a href="#order">order</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- ---menu bar--- -->
+      <div id="menu-bar" class="fas fa-bars"></div>
+    </header>
+
+    <!-- ====markup main element==== -->
+
+    <main>
+      <!-- ====markup home section==== -->
+      <section id="home" class="home">
+        <div class="home-desc">
+          <h1>kami percaya cemilan enak menawarkan senyum yang luar biasa</h1>
+          <p>
+            Terdapat cemilan yang sangat lezat dengan di sajikan oleh karyawan
+            kami yang sangat ramah
+          </p>
+        </div>
+
+        <div class="home-image">
+          <img src="./images/cigor/aset (1).jpeg" alt="Net Error" />
+        </div>
+      </section>
+
+      <!-- ====markup popular section==== -->
+      <section id="popular" class="popular">
+        <h2>most <span>popular</span> Cigor</h2>
+        <div id="popup-notification" class="popup hidden">
+          <h3>Pesanan berhasil ditambahkan ke keranjang!</h3>
+          <button id="close-popup">Tutup</button>
+        </div>
+
+        <div class="popular-content">
+          <!-- ---card 01--- -->
+          <div class="p-card">
+            <img src="./images/cigor/aset (4).jpeg" alt="Net Error" />
+            <h4>Kuah Kacang</h4>
+            <div class="review">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="price">Rp 5.000</p>
+            <input type="button" value="add to cart" />
+          </div>
+
+          <!-- ---card 02--- -->
+          <div class="p-card">
+            <img src="./images/cigor/aset (6).jpeg" alt="Net Error" />
+            <h4>Kuah Seblak</h4>
+            <div class="review">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="price">Rp 5.000</p>
+            <input type="button" value="add to cart" />
+          </div>
+
+          <!-- ---card 03--- -->
+          <div class="p-card">
+            <img src="./images/cigor/aset (1).jpeg" alt="Net Error" />
+            <h4>isi Keju</h4>
+            <div class="review">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="price">Rp 5.000</p>
+            <input type="button" value="add to cart" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ====markup gallery section==== -->
+      <section id="gallery" class="gallery">
+        
+
+        <h2>galleri <span>makanan</span></h2>
+
+        <div class="gallery-content">
+          <!-- ---gallery card 01--- -->
+          <div class="g-card">
+            <img src="./images/cigor/aset (1).jpeg" alt="Net Error" />
+            <h3>Cemilan Enak</h3>
+          </div>
+
+          <!-- ---gallery card 02--- -->
+          <div class="g-card">
+            <img src="./images/cigor/aset (3).jpeg" alt="Net Error" />
+            <h3>Cemilan Enak</h3>
+          </div>
+
+          <!-- ---gallery card 03--- -->
+          <div class="g-card">
+            <img src="./images/cigor/aset (4).jpeg" alt="Net Error" />
+            <h3>Cemilan Enak</h3>
+          </div>
+
+          <!-- ---gallery card 04--- -->
+          <div class="g-card">
+            <img src="./images/cigor/aset (7).jpeg" alt="Net Error" />
+            <h3>Cemilan Enak</h3>
+          </div>
+
+          <!-- ---gallery card 05--- -->
+          <div class="g-card">
+            <img src="./images/cigor/aset (6).jpeg" alt="Net Error" />
+            <h3>Cemilan Enak</h3>
+          </div>
+
+          <!-- ---gallery card 06--- -->
+          <div class="g-card">
+            <img src="./images/cigor/aset (5).jpeg" alt="Net Error" />
+            <h3>Cemilan Enak</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- documentation -->
+       <section id="documentasi" class="documentasi"></section>
+        <h2 style="font-size: 4rem;
+                  padding: 2rem;
+                  font-weight: 700;
+                  text-align: center;
+                  text-transform: capitalize;
+                  color: #000000;">
+                  Video
+                  <span style="padding: 0 1rem; color: #f7ca3e;">
+                    Dokumentasi
+                  </span>
+          </h2>
+        <div style="justify-content: center; display: flex;">
+          <iframe 
+            src="https://drive.google.com/file/d/1gEp8FdDFNZ3yAqSeKphuLesfGmhr5JrB/preview" 
+            width="720" 
+            height="480" 
+            allow="autoplay"
+            style="border: none;">
+         </iframe>
+        </div>
+      </section>
+
+      <!-- ====markup gallery section==== -->
+      <section id="order" class="order">
+        <h2>Membuat <span>order</span></h2>
+
+        <div class="order-content">
+          <form action="#" class="order-form" autocomplete="off">
+            <div class="cart-items" id="cart-items">
+              <h1>Keranjang Anda:</h1>
+              <!-- Item akan dirender di sini -->
+              <div id="cart-list">
+                <p>Keranjang Anda kosong.</p>
+              </div>
+            </div>
+            <input type="text" id="name" name="name" placeholder="Nama" required />
+            <input type="email" id="email" name="email" placeholder="Email" required />
+            <input type="number" id="phone" name="phone" placeholder="Nomor Telepon" required />
+            <textarea id="address" cols="30" rows="8" name="address" placeholder="Alamat" required></textarea>
+
+            <button type="button" id="order-button">Order Sekarang</button>
+          </form>
+          <img src="./images/cigor/aset (2).jpeg" alt="Net Error" />
+        </div>
+      </section>
+    </main>
+      <div class="marquee">
+        <a href="https://php.id/ref/90595" target="_blank">
+          <img src="images/hosting-murah/468x60.png" alt="Hosting Murah">
+        </a>
+      </div>
+        
+    <!-- ====markup footer element==== -->
+    <footer class="footer">
+      <div class="contact-info">
+        <h4>contact info</h4>
+        <p>
+          <i class="fas fa-location-dot"></i
+          ><span>Langgini, Kec. Bangkinang, Kabupaten Kampar, Riau 28463</span>
+        </p>
+        <p>
+          <i class="fas fa-envelope"></i> <span>yogisepdudehiya@gmail.com</span>
+        </p>
+        <p><i class="fas fa-phone"></i> <span>081375098013</span></p>
+        <p><i class="fas fa-phone"></i> <span>081268450490</span></p>
+      </div>
+
+      <div class="location">
+        <h4>lokasi cabang</h4>
+        <ul>
+          <li><a href="#">Bangkinang Kota</a></li>
+        </ul>
+      </div>
+
+      <div class="quick-links">
+        <h4>quick links</h4>
+        <ul>
+          <li><a href="#home">home</a></li>
+          <li><a href="#popular">popular</a></li>
+          <li><a href="#gallery">gallery</a></li>
+          <li><a href="#order">order</a></li>
+        </ul>
+      </div>
+
+      <div class="follow-us">
+        <h4>follow us</h4>
+        <ul>
+          <li>
+            <a href="https://www.facebook.com" target="blank">facebook</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com" target="blank">instagram</a>
+          </li>
+          <li></li>
+        </ul>
+      </div>
+
+      <div class="copyright">
+        <p>
+          Copyright 2024 || &copy
+          <span style="color: darkgoldenrod">Cigor TIF.</span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- ----linked main.js file---- -->
+    <script src="./public/js/main.js"></script>
+  </body>
+</html>
+
+<!-- happy coding!!!! -->
+<!-- this project made by Fahad at 27th April, 2022. -->
